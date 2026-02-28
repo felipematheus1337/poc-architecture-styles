@@ -1,6 +1,5 @@
 package poc_layered_architecture.v1.business;
 
-import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -23,17 +22,16 @@ public class JobService {
 
     private final static Logger log = LoggerFactory.getLogger(JobService.class);
     private final JobRepository jobRepository;
-    private final StepExecutionRepository stepExecutionRepository;
     private final JobMapper mapper;
 
-    public JobService(JobRepository jobRepository, StepExecutionRepository stepExecutionRepository, JobMapper mapper) {
+    public JobService(JobRepository jobRepository, JobMapper mapper) {
         this.jobRepository = jobRepository;
-        this.stepExecutionRepository = stepExecutionRepository;
         this.mapper = mapper;
     }
 
     @Transactional
     public JobResponse createJob(JobRequest request) {
+        log.info("::: CREATING AN JOB -> {}", request);
         Job job = this.mapper.toDomain(request);
         createdJobBusinessLogic(job);
         return mapper.toResponse(jobRepository.save(job));
@@ -41,6 +39,7 @@ public class JobService {
 
     @Transactional
     public JobResponse startAJob(Long id) {
+        log.info("::: Starting AN JOB with id -> {}", id);
         Optional<Job> optJob = jobRepository.findById(id);
 
         if (optJob.isEmpty()) return null;
