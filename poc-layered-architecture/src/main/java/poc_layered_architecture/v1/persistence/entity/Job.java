@@ -26,6 +26,7 @@ public class Job {
 
     private LocalDateTime finishedAt;
 
+    @OneToMany(mappedBy = "jobs")
     private List<StepExecution> steps;
 
     public Job() {

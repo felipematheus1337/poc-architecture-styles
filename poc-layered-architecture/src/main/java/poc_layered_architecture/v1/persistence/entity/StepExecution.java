@@ -23,6 +23,9 @@ public class StepExecution {
 
     private LocalDateTime finishedAt;
 
+    @ManyToOne(cascade = CascadeType.ALL, optional = false, fetch = FetchType.EAGER)
+    private Job jobs;
+
     public StepExecution() {
     }
 
