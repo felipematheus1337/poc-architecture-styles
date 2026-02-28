@@ -1,14 +1,12 @@
-package poc_layered_architecture.v1.presentation.entity;
+package poc_layered_architecture.v1.persistence.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
-import poc_layered_architecture.v1.presentation.entity.enums.JobStatus;
+import poc_layered_architecture.v1.persistence.entity.enums.JobStatus;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Table(name = "job")

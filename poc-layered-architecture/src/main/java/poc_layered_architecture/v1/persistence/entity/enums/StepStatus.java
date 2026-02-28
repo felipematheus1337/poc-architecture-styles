@@ -1,4 +1,4 @@
-package poc_layered_architecture.v1.presentation.entity.enums;
+package poc_layered_architecture.v1.persistence.entity.enums;
 
 public enum StepStatus {
 
