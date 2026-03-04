@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import poc_pipeline_architecture.v1.business.JobService;
+import poc_pipeline_architecture.v1.business.pipelines.pipes.CreateJobPipeline;
 import poc_pipeline_architecture.v1.presentation.dtos.JobRequest;
 import poc_pipeline_architecture.v1.presentation.dtos.JobResponse;
 
@@ -15,16 +16,17 @@ import java.util.List;
 public class JobController {
 
     private final JobService service;
+    private final CreateJobPipeline createJobPipeline;
 
-    public JobController(JobService service) {
+    public JobController(JobService service, CreateJobPipeline createJobPipeline) {
         this.service = service;
+        this.createJobPipeline = createJobPipeline;
     }
-
 
     @PostMapping
     public ResponseEntity<JobResponse> createJob(@RequestBody JobRequest request) {
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.createJob(request));
+        return ResponseEntity.status(HttpStatus.CREATED).body(createJobPipeline.execute(request));
 
     }
 

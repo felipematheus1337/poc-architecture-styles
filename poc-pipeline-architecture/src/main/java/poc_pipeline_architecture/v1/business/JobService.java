@@ -35,6 +35,11 @@ public class JobService {
         Job job = this.mapper.toDomain(request);
         createdJobBusinessLogic(job);
         return mapper.toResponse(jobRepository.save(job));
+
+        // FilterComMapperToDomain Trasnformação [ X ]
+        // FilterComLogicaDeNegocio Validação [  X ]
+        // Filter de Persistencia   Consumer [ X ]
+        // Criar PipelineEspecífica ( Orquestrador para essa regra de negócio. )
     }
 
     @Transactional
