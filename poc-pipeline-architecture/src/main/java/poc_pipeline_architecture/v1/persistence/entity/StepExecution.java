@@ -1,7 +1,7 @@
-package poc_layered_architecture.v1.persistence.entity;
+package poc_pipeline_architecture.v1.persistence.entity;
 
 import jakarta.persistence.*;
-import poc_layered_architecture.v1.persistence.entity.enums.StepStatus;
+import poc_pipeline_architecture.v1.persistence.entity.enums.StepStatus;
 
 import java.time.LocalDateTime;
 

@@ -1,12 +1,12 @@
-package poc_layered_architecture.v1.business.mapper;
+package poc_pipeline_architecture.v1.business.mapper;
 
 import org.springframework.stereotype.Component;
-import poc_layered_architecture.v1.persistence.entity.Job;
-import poc_layered_architecture.v1.persistence.entity.StepExecution;
-import poc_layered_architecture.v1.presentation.dtos.JobRequest;
-import poc_layered_architecture.v1.presentation.dtos.JobResponse;
-import poc_layered_architecture.v1.presentation.dtos.StepExecutionRequest;
-import poc_layered_architecture.v1.presentation.dtos.StepExecutionResponse;
+import poc_pipeline_architecture.v1.persistence.entity.Job;
+import poc_pipeline_architecture.v1.persistence.entity.StepExecution;
+import poc_pipeline_architecture.v1.presentation.dtos.JobRequest;
+import poc_pipeline_architecture.v1.presentation.dtos.JobResponse;
+import poc_pipeline_architecture.v1.presentation.dtos.StepExecutionRequest;
+import poc_pipeline_architecture.v1.presentation.dtos.StepExecutionResponse;
 
 import java.util.List;
 

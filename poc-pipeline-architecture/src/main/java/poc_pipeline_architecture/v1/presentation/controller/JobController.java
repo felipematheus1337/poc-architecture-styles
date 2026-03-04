@@ -1,11 +1,12 @@
-package poc_layered_architecture.v1.presentation.controller;
+package poc_pipeline_architecture.v1.presentation.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import poc_layered_architecture.v1.business.JobService;
-import poc_layered_architecture.v1.presentation.dtos.JobRequest;
-import poc_layered_architecture.v1.presentation.dtos.JobResponse;
+import poc_pipeline_architecture.v1.business.JobService;
+import poc_pipeline_architecture.v1.presentation.dtos.JobRequest;
+import poc_pipeline_architecture.v1.presentation.dtos.JobResponse;
+
 
 import java.util.List;
 

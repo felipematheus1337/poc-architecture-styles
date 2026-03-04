@@ -1,4 +1,4 @@
-package poc_layered_architecture.v1.presentation.dtos;
+package poc_pipeline_architecture.v1.presentation.dtos;
 
 import java.time.LocalDateTime;
 import java.util.List;

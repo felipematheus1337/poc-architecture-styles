@@ -1,17 +1,17 @@
-package poc_layered_architecture.v1.business;
+package poc_pipeline_architecture.v1.business;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import poc_layered_architecture.v1.business.mapper.JobMapper;
-import poc_layered_architecture.v1.persistence.entity.Job;
-import poc_layered_architecture.v1.persistence.entity.enums.JobStatus;
-import poc_layered_architecture.v1.persistence.entity.enums.StepStatus;
-import poc_layered_architecture.v1.persistence.repository.JobRepository;
-import poc_layered_architecture.v1.persistence.repository.StepExecutionRepository;
-import poc_layered_architecture.v1.presentation.dtos.JobRequest;
-import poc_layered_architecture.v1.presentation.dtos.JobResponse;
+import poc_pipeline_architecture.v1.business.mapper.JobMapper;
+import poc_pipeline_architecture.v1.persistence.entity.Job;
+import poc_pipeline_architecture.v1.persistence.entity.enums.JobStatus;
+import poc_pipeline_architecture.v1.persistence.entity.enums.StepStatus;
+import poc_pipeline_architecture.v1.persistence.repository.JobRepository;
+import poc_pipeline_architecture.v1.presentation.dtos.JobRequest;
+import poc_pipeline_architecture.v1.presentation.dtos.JobResponse;
+
 
 import java.time.LocalDateTime;
 import java.util.List;

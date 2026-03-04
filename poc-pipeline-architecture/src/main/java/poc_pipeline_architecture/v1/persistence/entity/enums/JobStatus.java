@@ -1,4 +1,4 @@
-package poc_layered_architecture.v1.persistence.entity.enums;
+package poc_pipeline_architecture.v1.persistence.entity.enums;
 
 public enum JobStatus {
 
