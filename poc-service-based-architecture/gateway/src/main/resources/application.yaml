@@ -1,3 +1,31 @@
+server:
+  port: 8080
+
 spring:
   application:
-    name: v1
+    name: sba-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: sba-bff-orders
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/orders
+          filters:
+            - StripPrefix=1
+            - AddRequestHeader=X-Edge, gateway
+
+        - id: sba-bff-identity
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/identity
+          filters:
+            - StripPrefix=1
+            - AddRequestHeader=X-Edge, gateway
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, prometheus
+
