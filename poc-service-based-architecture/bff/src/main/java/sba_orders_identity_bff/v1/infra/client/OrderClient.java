@@ -12,7 +12,7 @@ import sba_orders_identity_bff.v1.infra.client.dto.order.OrderRequestDto;
         name = "order-service-client",
         url = "${services.order.url}"
 )
-public interface OrderServiceClient {
+public interface OrderClient {
 
     @Headers({ "Content-Type: application/json"})
     @PostMapping
