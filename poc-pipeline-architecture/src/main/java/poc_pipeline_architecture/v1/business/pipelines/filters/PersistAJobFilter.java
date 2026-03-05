@@ -28,7 +28,7 @@ public class PersistAJobFilter<T> implements Filter<T> {
 
         var contextName = getContextName(tContext);
 
-        if (contextName == "CreateJobContext") {
+        if (contextName.equals("CreateJobContext")) {
                 CreateJobContext ctx = (CreateJobContext) factory.getContext(contextName, (CreateJobContext) tContext);
                 this.persist(ctx.job);
         }
