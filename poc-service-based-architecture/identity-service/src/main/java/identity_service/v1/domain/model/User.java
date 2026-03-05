@@ -2,6 +2,7 @@ package identity_service.v1.domain.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,7 +13,8 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Users {
+@Builder
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
