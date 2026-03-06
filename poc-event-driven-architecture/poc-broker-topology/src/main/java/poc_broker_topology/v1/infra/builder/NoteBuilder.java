@@ -2,6 +2,7 @@ package poc_broker_topology.v1.infra.builder;
 
 import org.springframework.stereotype.Component;
 import poc_broker_topology.v1.domain.model.Note;
+import poc_broker_topology.v1.infra.amqp.dtos.EventNote;
 import poc_broker_topology.v1.infra.dtos.CreateNoteRequest;
 import poc_broker_topology.v1.infra.dtos.NoteResponseDto;
 
@@ -21,6 +22,15 @@ public class NoteBuilder {
                 .builder()
                 .title(note.getTitle())
                 .content(note.getContent())
+                .build();
+    }
+
+    public EventNote toEventNote(Note note) {
+        return EventNote
+                .builder()
+                .noteId(note.getId().toString())
+                .content(note.getContent())
+                .title(note.getTitle())
                 .build();
     }
 }

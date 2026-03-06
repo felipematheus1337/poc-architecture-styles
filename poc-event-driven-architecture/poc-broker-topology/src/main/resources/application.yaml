@@ -4,3 +4,63 @@ server:
 spring:
   application:
     name: sba-event-driven-broker-topology
+
+  cloud:
+    stream:
+
+      function:
+        definition: createdNoteConsumer
+
+      bindings:
+
+        createNote-out-0:
+          destination: create-note-sba-broker
+          contentType: application/json
+          producer:
+            useNativeEncoding: true
+
+        createdNoteConsumer-in-0:
+          destination: create-note-sba-broker
+          group: note-service
+          contentType: application/json
+          consumer:
+            enableDlq: true
+            dlqName: create-note-sba-broker-dlq
+            maxAttempts: 3
+            backOffInitialInterval: 1000
+            backOffMaxInterval: 10000
+            backOffMultiplier: 2
+
+      kafka:
+
+        binder:
+          brokers: localhost:9092
+          autoCreateTopics: true
+          requiredAcks: all
+
+          configuration:
+
+            # Producer reliability
+            acks: all
+            enable.idempotence: true
+            retries: 10
+            max.in.flight.requests.per.connection: 5
+
+            # batching
+            batch.size: 32768
+            linger.ms: 10
+            compression.type: snappy
+
+            # delivery
+            delivery.timeout.ms: 120000
+            request.timeout.ms: 30000
+
+            # consumer
+            isolation.level: read_committed
+            max.poll.records: 500
+            session.timeout.ms: 15000
+            heartbeat.interval.ms: 5000
+
+      default:
+        producer:
+          sync: false
