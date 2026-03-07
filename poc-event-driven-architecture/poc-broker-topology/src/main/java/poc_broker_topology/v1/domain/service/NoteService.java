@@ -24,8 +24,8 @@ public class NoteService {
     }
 
     private void verifyNote(Note note) {
-        Assert.isNull(note, "Object is null.");
-        Assert.isNull(note.getContent(), "A note need a content.");
-        Assert.isNull(note.getTitle(), "A note need a title.");
+        Assert.notNull(note, "Object is null.");
+        Assert.notNull(note.getContent(), "A note need a content.");
+        Assert.notNull(note.getTitle(), "A note need a title.");
     }
 }

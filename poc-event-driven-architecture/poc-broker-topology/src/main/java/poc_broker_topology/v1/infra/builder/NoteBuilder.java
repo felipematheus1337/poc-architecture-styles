@@ -6,6 +6,8 @@ import poc_broker_topology.v1.infra.amqp.dtos.EventNote;
 import poc_broker_topology.v1.infra.dtos.CreateNoteRequest;
 import poc_broker_topology.v1.infra.dtos.NoteResponseDto;
 
+import java.time.LocalDateTime;
+
 @Component
 public class NoteBuilder {
 
@@ -14,6 +16,7 @@ public class NoteBuilder {
                 .builder()
                 .title(request.title())
                 .content(request.content())
+                .createdAt(LocalDateTime.now())
                 .build();
     }
 
